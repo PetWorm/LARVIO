@@ -3,6 +3,7 @@ A lightweight, accurate and robust monocular visual inertial odometry based on M
 
 To be open sourced soon.
 
+
 ## Results
-RMSE on EuRoC dataset. Loop closure was not applied in our methods.
+RMSE on EuRoC dataset. Loop closure was not applied in our algorithm.
 ![comparison](https://github.com/PetWorm/light-msckf/blob/master/results/comparison.jpg)
