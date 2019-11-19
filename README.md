@@ -9,10 +9,15 @@ Loop closure was not applied in our algorithm. It is capable of online imu-cam e
 
 
 ## Results
-RMSE on EuRoC dataset. Evaluations below are done using [PetWorm/sim3_evaluate_tool](https://github.com/PetWorm/sim3_evaluate_tool).
+RMSE on EuRoC dataset are listed. 
+Evaluations below are done using [PetWorm/sim3_evaluate_tool](https://github.com/PetWorm/sim3_evaluate_tool).
 
 In the newest update, online imu-cam extrinsic and timestamp error calibration in VINS-MONO are turned on to explore its extreme ability. While in this setup, the V102 sequence would somehow fail. The result of VINS-MONO in V102 below is of setup without online calibration.
 
 Results of our algorithm are repeatible in every run of every computer I tested so far.
 
 ![comparison](https://github.com/PetWorm/light-msckf/blob/master/results/comparison.jpg)
+
+
+## Cross Platform Performance
+This package has been successfully implemented on ARM (Jetson Nano and Jetson TX2, no GPU refinement yet) recently. The performances are comparable to the results on PCs.
