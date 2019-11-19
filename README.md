@@ -20,4 +20,4 @@ Results of our algorithm are repeatible in every run of every computer I tested 
 
 
 ## Cross Platform Performance
-This package has been successfully implemented on ARM (Jetson Nano and Jetson TX2, no GPU refinement yet) recently. The performances are comparable to the results on PCs.
+This package has been successfully deployed on ARM (Jetson Nano and Jetson TX2, no GPU refinement yet) recently. The performances are comparable to the results on PCs.
