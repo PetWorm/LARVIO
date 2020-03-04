@@ -1,0 +1,108 @@
+%YAML:1.0
+
+# output directory
+output_dir: "/Users/aresqiu/workSpace/larvio_results/"
+
+# switches
+if_FEJ: 1    # 0(false) or 1(true)
+estimate_extrin: 1    # 0(false) or 1(true)
+estimate_td: 1    # 0(false) or 1(true)
+calib_imu_instrinsic: 0    # 0(false) or 1(true)
+
+# camera instrinsic
+camera_model: "pinhole"       # only support "pinhole"
+distortion_model: "equidistant"    # only support "radtan" and "equidistant"
+resolution_width: 1280
+resolution_height: 720
+intrinsics:
+   fx: 712.6506687297613
+   fy: 713.3381366201213
+   cx: 639.2566285415327
+   cy: 377.90328510285144
+distortion_coeffs:
+   k1: -0.015661749636940888
+   k2: 0.0028974710951617955
+   p1: 0.0034539528765559204
+   p2: -0.006466223707507623
+
+# imu-camera extrinsic, including spacial and temporal parameters
+T_cam_imu: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data:
+    [0.9999851351447288, -0.0010261392271367887, 0.005355046952563305, 0.04918070909625808,
+     -0.0010359006126353073, -0.999997806554969, 0.001820383248210167, 0.003166959323659525,
+     0.0053531672399027685, -0.001825903484895496, -0.9999840047105576, -0.01496732752058007,
+                     0,                   0,                   0,   1.000000000000000]
+td: 0.0
+
+# TODO: if calibrate camera instrinsic online
+
+# visual front-end parameters
+pyramid_levels: 2
+patch_size: 21
+fast_threshold: 30
+max_iteration: 30
+track_precision: 0.01
+ransac_threshold: 1
+max_features_num: 300
+min_distance: 15
+flag_equalize: 1    # 0(false) or 1(true)
+pub_frequency: 20
+
+# window size
+sw_size: 20
+
+# online reset thresholds
+position_std_threshold: 8.0
+rotation_threshold: 0.2618
+translation_threshold: 0.4
+tracking_rate_threshold: 0.5
+
+# feature triangulation parameters
+least_observation_number: 3
+max_track_len: 6
+feature_translation_threshold: -1.0
+
+# imu and camera measurement noise parameters
+noise_gyro: 0.01
+noise_acc: 0.1
+noise_gyro_bias: 2e-5
+noise_acc_bias: 4e-4
+noise_feature: 0.008
+
+# filter intial covariance
+initial_covariance_orientation: 4e-4
+initial_covariance_velocity: 0.25
+initial_covariance_position: 0.0
+initial_covariance_gyro_bias: 4e-4
+initial_covariance_acc_bias: 0.01
+initial_covariance_extrin_rot: 3.0462e-8
+initial_covariance_extrin_trans: 9e-8
+
+# fej settings
+reset_fej_threshold: 10.11
+
+# zupt settings
+if_ZUPT_valid: 1    # 0(false) or 1(true)
+zupt_max_feature_dis: 2e-3
+zupt_noise_v: 1e-2    # std
+zupt_noise_p: 1e-2
+zupt_noise_q: 3.4e-2
+
+# static initialization setting
+static_duration: 1.0
+
+# measurement rate
+imu_rate: 200
+img_rate: 30
+
+# augmented feature state settings
+max_features_in_one_grid: 1     # pure msckf if set to 0
+aug_grid_rows: 5
+aug_grid_cols: 7
+feature_idp_dim: 1              # 1 or 3
+
+# if apply Schmidt filter
+use_schmidt: 0    # 0(false) or 1(true)

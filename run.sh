@@ -1,0 +1,1 @@
+~/YOUR_PATH/LARVIO/build/bin/larvio ~/YOUR_PATH_TO_DATASET/MH_02/mav0/imu0/data.csv ~/YOUR_PATH_TO_DATASET/MH_02/mav0/cam0/data.csv ~/YOUR_PATH_TO_DATASET/MH_02/mav0/cam0/data ~/YOUR_PATH/LARVIO/config/euroc.yaml
