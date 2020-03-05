@@ -1,5 +1,5 @@
 # LARVIO
-Lightweight, Accurate and Robust monocular Visual Inertial Odometry is based on hybrid EKF VIO. It is featured by augmenting features with long track length into the filter state by 1D IDP of MSCKF to provide accurate positioning results.
+LARVIO is short for Lightweight, Accurate and Robust monocular Visual Inertial Odometry, which is based on hybrid EKF VIO. It is featured by augmenting features with long track length into the filter state of MSCKF by 1D IDP to provide accurate positioning results.
 
 
 ## Acknowledgement
@@ -9,13 +9,13 @@ LARVIO is originally developed based on [MSCKF_VIO](https://github.com/KumarRobo
 
 LARVIO also benefits from [VINS-MONO](https://github.com/HKUST-Aerial-Robotics/VINS-Mono) and [ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2).
 
-We would like to thank the authors of repo above for their great contribution. We kept the copyright announcement of these repos.
+We would like to thank the authors of repos above for their great contribution. We kept the copyright announcement of these repos.
 
 
 ## Introduction
 LARVIO is a EKF-based monocular VIO. Loop closure was not applied in our algorithm. 
 #### 1) Hybrid EKF with 1D IDP
-A hybrid EKF architecture is utilized, which based on the work of [Mingyang Li](http://roboticsproceedings.org/rss08/p31.pdf). It augments features with long track length into the filter state. In LARVIO, One-Dimensional Inverse Depth Parametrization is utilized to parametrize the augmented feature state, which is different from the original 3d solution by Li. This novelty improves the computational efficiency compare to the 3d solution. The positioning precision is also improved thanks to the utilization of complete constraints of features with long track length.
+A hybrid EKF architecture is utilized, which is based on the work of [Mingyang Li](http://roboticsproceedings.org/rss08/p31.pdf). It augments features with long track length into the filter state. In LARVIO, One-Dimensional Inverse Depth Parametrization is utilized to parametrize the augmented feature state, which is different from the original 3d solution by Li. This novelty improves the computational efficiency compare to the 3d solution. The positioning precision is also improved thanks to the utilization of complete constraints of features with long track length.
 #### 2) Online calibration
 It is capable of online imu-cam extrinsic calibration, online timestamp error calibration and online imu instrinsic calibration. 
 #### 3) Automatic initialization
@@ -29,14 +29,13 @@ A closed-form ZUPT measurement update is proposed to cope with the static scene.
 ## Feasibility
 LARVIO is a feasible software. 
 
-Users can change the settings in config file to set the VIO as MSCKF-only, 3d hybrid or 1d hybrid solutions. And the online calibration.
-All the online calibration functions can be turned on or off in each solution by the config file.
+Users can change the settings in config file to set the VIO as MSCKF-only, 3d hybrid or 1d hybrid solutions. And all the online calibration functions can be turned on or off in each solution by the config file.
 
 
 ## Dependencies
-LARVIO depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 16.04), `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `Pangolin`.
+LARVIO depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 18.04), `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `Pangolin`.
 
-The software has been tested on OSX 10.15 and Ubuntu 16.04. It can also be ingetrated into ROS easily with some modification of the interface.
+The software has been tested on OSX 10.15 and Ubuntu 18.04. The performance under Ubuntu 16.04 is not guaranteed right now. It can also be ingetrated into ROS easily with some modification of the interface.
 
 
 ## Usage
@@ -62,11 +61,11 @@ In the newest update, online imu-cam extrinsic and timestamp error calibration i
 
 Results of our algorithm are repeatible in every run of every computer I tested so far.
 
-![comparison](https://github.com/PetWorm/LARVIO_test/blob/master/results/comparison.jpg)
+![comparison](https://github.com/PetWorm/LARVIO/blob/master/results/comparison.jpg)
 
 
 ## Related Works
-A related journal paper has been initially accepted by 'Chinese Journal of Aeronautics'.
+A related journal paper has been initially accepted by `Chinese Journal of Aeronautics`.
 
 Another earlier work illustrating some parts of LARVIO is as below:
 ```txt
