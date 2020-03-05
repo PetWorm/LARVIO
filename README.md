@@ -1,3 +1,9 @@
+<!--
+ * @Descripttion: 
+ * @Author: Xiaochen Qiu
+ * @Date: 2020-03-03 16:15:25
+ * @FilePath: /LARVIO/README.md
+ -->
 # LARVIO
 LARVIO is short for Lightweight, Accurate and Robust monocular Visual Inertial Odometry, which is based on hybrid EKF VIO. It is featured by augmenting features with long track length into the filter state of MSCKF by 1D IDP to provide accurate positioning results.
 
@@ -13,11 +19,11 @@ We would like to thank the authors of repos above for their great contribution. 
 
 
 ## Introduction
-LARVIO is a EKF-based monocular VIO. Loop closure was not applied in our algorithm. 
+LARVIO is an EKF-based monocular VIO. Loop closure was not applied in our algorithm. 
 #### 1) Hybrid EKF with 1D IDP
 A hybrid EKF architecture is utilized, which is based on the work of [Mingyang Li](http://roboticsproceedings.org/rss08/p31.pdf). It augments features with long track length into the filter state. In LARVIO, One-Dimensional Inverse Depth Parametrization is utilized to parametrize the augmented feature state, which is different from the original 3d solution by Li. This novelty improves the computational efficiency compare to the 3d solution. The positioning precision is also improved thanks to the utilization of complete constraints of features with long track length.
 #### 2) Online calibration
-It is capable of online imu-cam extrinsic calibration, online timestamp error calibration and online imu instrinsic calibration. 
+It is capable of online imu-cam extrinsic calibration, online timestamp error calibration and online imu intrinsic calibration. 
 #### 3) Automatic initialization
 LARVIO can be automatically initialized in either static or dynamic scenerios.
 #### 4) Robust visual front-end
@@ -35,7 +41,7 @@ Users can change the settings in config file to set the VIO as MSCKF-only, 3d hy
 ## Dependencies
 LARVIO depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 18.04), `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `Pangolin`.
 
-The software has been tested on OSX 10.15 and Ubuntu 18.04. The performance under Ubuntu 16.04 is not guaranteed right now. It can also be ingetrated into ROS easily with some modification of the interface.
+The software has been tested on OSX 10.15 and Ubuntu 18.04. The performance under Ubuntu 16.04 is not guaranteed right now. It can also be integrated into ROS easily with some modification of the interface.
 
 
 ## Usage
@@ -51,6 +57,9 @@ An example is given in `LARVIO/run.sh` to show how to run LARVIO.
 
 
 ## Results
+#### 1) Demo on EuRoC
+![LARVIO on EuRoC](https://github.com/PetWorm/LARVIO/blob/master/results/euroc_x8.gif)
+#### 2) Trajectories RMSEs
 This is the results of an earlier version of LARVIO. Due to the changes, the current repo might not reproduce the exact results as below. 
 
 RMSE on EuRoC dataset are listed. 
