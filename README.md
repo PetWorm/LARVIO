@@ -39,9 +39,9 @@ Users can change the settings in config file to set the VIO as MSCKF-only, 3d hy
 
 
 ## Dependencies
-LARVIO depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 18.04), `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `Pangolin`.
+LARVIO depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 16.04/18.04), `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `Pangolin`. `gcc 7` is needed under Ubuntu 16.04.
 
-The software has been tested on OSX 10.15 and Ubuntu 18.04. The performance under Ubuntu 16.04 is not guaranteed right now. It can also be integrated into ROS easily with some modification of the interface.
+The software has been tested on OSX 10.15 and Ubuntu 16.04/18.04. It can also be integrated into ROS easily with some modification of the interface.
 
 
 ## Usage
@@ -50,10 +50,14 @@ LARVIO is a CMake based software. After install the dependencies, try commands b
 cd LARVIO
 mkdir build
 cd build
-cmake ..
+cmake -D CMAKE_BUILD_TYPE=Release ..
 make
 ```
 An example is given in `LARVIO/run.sh` to show how to run LARVIO.
+
+
+## Docker
+A `Dockerfile` is provided in `LARVIO/docker`. After building it, you need to load dateset and modify the `run.sh` in container to the right directories. Also, GUI is needed in the host to display the Pangolin view.
 
 
 ## Results

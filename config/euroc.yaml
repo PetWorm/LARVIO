@@ -46,7 +46,7 @@ fast_threshold: 30
 max_iteration: 30
 track_precision: 0.01
 ransac_threshold: 1
-max_features_num: 250
+max_features_num: 200
 min_distance: 20
 flag_equalize: 1    # 0(false) or 1(true)
 pub_frequency: 10
@@ -100,8 +100,8 @@ img_rate: 20
 
 # augmented feature state settings
 max_features_in_one_grid: 1     # pure msckf if set to 0
-aug_grid_rows: 6
-aug_grid_cols: 7
+aug_grid_rows: 5
+aug_grid_cols: 6
 feature_idp_dim: 1              # 1 or 3
 
 # if apply Schmidt filter
