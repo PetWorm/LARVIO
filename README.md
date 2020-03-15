@@ -1,11 +1,7 @@
-<!--
- * @Descripttion: 
- * @Author: Xiaochen Qiu
- * @Date: 2020-03-03 16:15:25
- * @FilePath: /LARVIO/README.md
- -->
 # LARVIO
 LARVIO is short for Lightweight, Accurate and Robust monocular Visual Inertial Odometry, which is based on hybrid EKF VIO. It is featured by augmenting features with long track length into the filter state of MSCKF by 1D IDP to provide accurate positioning results.
+
+A single-thread toyish example as well as a ROS nodelet package for LARVIO is provided in this repo.
 
 
 ## Acknowledgement
@@ -39,13 +35,16 @@ Users can change the settings in config file to set the VIO as MSCKF-only, 3d hy
 
 
 ## Dependencies
-LARVIO depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 16.04/18.04), `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `Pangolin`. `gcc 7` is needed under Ubuntu 16.04.
-
-The software has been tested on OSX 10.15 and Ubuntu 16.04/18.04. It can also be integrated into ROS easily with some modification of the interface.
+LARVIO depends on `Eigen`, `Boost`, `Suitesparse` and `Ceres` for the core algorithm.
+#### Toyish example
+The toyish example depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 16.04/18.04), `Pangolin` is needed for visualization. Notice that extra `gcc 7` installation is needed for Ubuntu 16.04.
+#### ROS nodelet
+The ROS nodelet package has been tested on `Kinetic` and `Melodic` for Ubuntu 16.04/18.04. Following ROS packages are needed: `tf`, `cv_bridge`, `message_filters` and `image_transport`.
 
 
 ## Usage
-LARVIO is a CMake based software. After install the dependencies, try commands below to compile the software:
+#### Toyish example
+The toyish LARVIO example is a `CMake` based software. After install the dependencies, try commands below to compile the software:
 ```
 cd LARVIO
 mkdir build
@@ -53,11 +52,31 @@ cd build
 cmake -D CMAKE_BUILD_TYPE=Release ..
 make
 ```
-An example is given in `LARVIO/run.sh` to show how to run LARVIO.
+An example is given in `LARVIO/run.sh` to show how to run the example.
+#### ROS nodelet
+A ROS nodelet package is provided in `LARVIO/ros_wrapper`. It has been tested on `Kinetic` and `Melodic`. Use commands below to compile the nodelet: 
+```
+cd YOUR_PATH/LARVIO/ros_wrapper
+catkin_make
+```
+After building it, launch the LARVIO by:
+```
+. YOUR_PATH/LARVIO/ros_wrapper/devel/setup.bash
+roslaunch larvio larvio_euroc.launch
+```
+Open a new terminal, and launch the `rviz` for visualization by (optional): 
+```
+. YOUR_PATH/LARVIO/ros_wrapper/devel/setup.bash
+roslaunch larvio larvio_rviz.launch
+```
+Open a new terminal to play the dataset:
+```
+rosbag play MH_01_easy.bag
+```
 
 
 ## Docker
-A `Dockerfile` is provided in `LARVIO/docker`. After building it, you need to load dateset and modify the `run.sh` in container to the right directories. Also, GUI is needed in the host to display the Pangolin view.
+A `Dockerfile` is provided in `LARVIO/docker` (for toyish example only right now). After building it, you need to load dateset and modify the `run.sh` in container to the right directories. Also, GUI is needed in the host to display the Pangolin view.
 
 
 ## Results

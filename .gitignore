@@ -1,4 +1,5 @@
-build/
+**/build/
+**/devel/
 bin/
 .vscode/
 *.*~

@@ -79,16 +79,6 @@ class LarVio {
     // Get velocity covariance
     Eigen::Matrix3d getPvel();
 
-    // Get copy of publish_features
-    MapServer getCopyOfPubFeatures() {
-        return publish_features;
-    }
-
-    // Clear publish_features
-    void clearPubFeatures() {
-        publish_features.clear();
-    }
-
     // Get poses of augmented IMU states
     void getSwPoses(vector<Eigen::Isometry3d>& swPoses);
 

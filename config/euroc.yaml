@@ -1,7 +1,7 @@
 %YAML:1.0
 
 # output directory
-output_dir: "/Users/aresqiu/workSpace/larvio_results/"
+output_dir: "/root/larvio_results/"
 
 # switches
 if_FEJ: 1    # 0(false) or 1(true)

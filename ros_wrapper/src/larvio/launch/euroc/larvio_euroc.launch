@@ -1,0 +1,24 @@
+<launch>
+
+  <arg name="robot" default="qxc_robot"/>
+  <arg name="fixed_frame_id" default="world"/>
+
+
+  <!-- System Manager Nodelet  -->
+  <group ns="$(arg robot)">
+    <node pkg="nodelet" type="nodelet" name="system"
+      args='standalone larvio/SystemNodelet'
+      output="screen">
+
+      <param name="fixed_frame_id" value="$(arg fixed_frame_id)"/>
+      <param name="child_frame_id" value="odom"/>
+
+      <remap from="~imu" to="/imu0"/>
+      <remap from="~cam0_image" to="/cam0/image_raw"/>
+
+      <param name="config_file" value="$(find larvio)/../../../config/euroc.yaml"/>
+
+    </node>
+  </group>
+
+</launch>

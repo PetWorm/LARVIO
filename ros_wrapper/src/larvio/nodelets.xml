@@ -1,0 +1,10 @@
+<library path="lib/libsystem_manager_nodelet">
+  <class name="larvio/SystemNodelet"
+         type="larvio::SystemNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description>
+      System manager nodelet for organize the visual
+      front-end and filter back-end.
+    </description>
+  </class>
+</library>

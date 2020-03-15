@@ -1,0 +1,3 @@
+<launch>
+    <node name="visualization" pkg="rviz" type="rviz" output="log" args="-d $(find larvio)/launch/rviz/larvio.rviz" />
+</launch>
