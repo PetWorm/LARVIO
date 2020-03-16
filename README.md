@@ -76,7 +76,7 @@ rosbag play MH_01_easy.bag
 
 
 ## Docker
-A `Dockerfile` is provided in `LARVIO/docker` (for toyish example only right now). After building it, you need to load dateset and modify the `run.sh` in container to the right directories. Also, GUI is needed in the host to display the Pangolin view.
+A `Dockerfile` is provided in `LARVIO/docker`. After building it, you need to load dateset and modify the `run.sh` in container to run toyish example, or use 'roslaunch' to run the ROS package. Also, GUI is needed in the host to display the Pangolin and rviz view.
 
 
 ## Results
