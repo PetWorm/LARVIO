@@ -79,6 +79,8 @@ rosbag play MH_01_easy.bag
 ## Docker
 A `Dockerfile` is provided in `LARVIO/docker`. After building it, you need to load dateset and modify the `run.sh` in container to run toyish example, or use 'roslaunch' to run the ROS package. Also, GUI is needed in the host to display the Pangolin and rviz view.
 
+There is another VNC docker image which is convinent for monitoring the rviz view. Click [petworm/vnc-larvio-playground](https://hub.docker.com/r/petworm/vnc-larvio-playground) to directly pull this image, or build it from source with [PetWorm/docker-larvio-playground](https://github.com/PetWorm/docker-larvio-playground).
+
 
 ## Results
 #### 1) Demo on EuRoC
