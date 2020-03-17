@@ -43,6 +43,7 @@ The ROS nodelet package has been tested on `Kinetic` and `Melodic` for Ubuntu 16
 
 
 ## Usage
+This part show how to play LARVIO with [EuRoC dataset](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets).
 #### Toyish example
 The toyish LARVIO example is a `CMake` based software. After install the dependencies, try commands below to compile the software:
 ```
