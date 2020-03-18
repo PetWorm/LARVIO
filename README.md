@@ -1,6 +1,8 @@
 # LARVIO
 LARVIO is short for Lightweight, Accurate and Robust monocular Visual Inertial Odometry, which is based on hybrid EKF VIO. It is featured by augmenting features with long track length into the filter state of MSCKF by 1D IDP to provide accurate positioning results.
 
+The core algorithm of LARVIO depends on `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `OpenCV`, making the algorithm of good portability. 
+
 A single-thread toyish example as well as a ROS nodelet package for LARVIO is provided in this repo.
 
 
@@ -35,7 +37,7 @@ Users can change the settings in config file to set the VIO as MSCKF-only, 3d hy
 
 
 ## Dependencies
-LARVIO depends on `Eigen`, `Boost`, `Suitesparse` and `Ceres` for the core algorithm.
+LARVIO depends on `Eigen`, `Boost`, `Suitesparse`, `Ceres` and `OpenCV` for the core algorithm.
 #### Toyish example
 The toyish example depends on `OpenCV` (4.1.2 on OSX and 3.4.6 on Ubuntu 16.04/18.04), `Pangolin` is needed for visualization. Notice that extra `gcc 7` installation is needed for Ubuntu 16.04.
 #### ROS nodelet
