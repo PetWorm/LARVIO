@@ -6,6 +6,31 @@ The core algorithm of LARVIO depends on `Eigen`, `Boost`, `Suitesparse`, `Ceres`
 A single-thread toyish example as well as a ROS nodelet package for LARVIO is provided in this repo.
 
 
+## Results
+#### 1) Demo on EuRoC
+![LARVIO on EuRoC](https://github.com/PetWorm/LARVIO/blob/master/results/euroc_x8.gif)
+#### 2) Trajectories RMSEs
+This is the results of an earlier version of LARVIO. Due to the changes, the current repo might not reproduce the exact results as below. 
+
+RMSE on EuRoC dataset are listed. 
+
+Evaluations below are done using [PetWorm/sim3_evaluate_tool](https://github.com/PetWorm/sim3_evaluate_tool).
+
+In the newest update, online imu-cam extrinsic and timestamp error calibration in VINS-MONO are turned on to explore its extreme ability. While in this setup, the V102 sequence would somehow fail. The result of VINS-MONO in V102 below is of setup without online calibration.
+
+Results of our algorithm are repeatible in every run of every computer I tested so far.
+
+![comparison](https://github.com/PetWorm/LARVIO/blob/master/results/comparison.jpg)
+
+
+## Cross Platform Performance
+This package has been successfully deployed on ARM (Jetson Nano and Jetson TX2, realtime without GPU refinement). The performances are comparable to the results on PCs.
+
+Below is the exper1ment result in our office. A TX2-based multi-thread CPU-only implementation without ROS was developed here. We used [MYNT-EYE-D](https://github.com/slightech/MYNT-EYE-D-SDK) camera SDK to collect monocular images and IMU data, and estimate the camera poses in realtime. We walk around out the office to the corridor or the neighbor room, and return to the start point (in white circle) for a couple of times.
+
+![TX2 implementation](https://github.com/PetWorm/LARVIO/blob/master/results/TX2_result.png)
+
+
 ## Acknowledgement
 This repo is for academic use only.
 
@@ -84,23 +109,6 @@ A `Dockerfile` is provided in `LARVIO/docker`. After building it, you need to lo
 There is another VNC docker image which is convinent for monitoring the rviz view. Click [petworm/vnc-larvio-playground](https://hub.docker.com/r/petworm/vnc-larvio-playground) to directly pull this image, or build it from source with [PetWorm/docker-larvio-playground](https://github.com/PetWorm/docker-larvio-playground).
 
 
-## Results
-#### 1) Demo on EuRoC
-![LARVIO on EuRoC](https://github.com/PetWorm/LARVIO/blob/master/results/euroc_x8.gif)
-#### 2) Trajectories RMSEs
-This is the results of an earlier version of LARVIO. Due to the changes, the current repo might not reproduce the exact results as below. 
-
-RMSE on EuRoC dataset are listed. 
-
-Evaluations below are done using [PetWorm/sim3_evaluate_tool](https://github.com/PetWorm/sim3_evaluate_tool).
-
-In the newest update, online imu-cam extrinsic and timestamp error calibration in VINS-MONO are turned on to explore its extreme ability. While in this setup, the V102 sequence would somehow fail. The result of VINS-MONO in V102 below is of setup without online calibration.
-
-Results of our algorithm are repeatible in every run of every computer I tested so far.
-
-![comparison](https://github.com/PetWorm/LARVIO/blob/master/results/comparison.jpg)
-
-
 ## Related Works
 A related journal paper has been initially accepted by `Chinese Journal of Aeronautics`.
 
@@ -117,7 +125,3 @@ Another earlier work illustrating some parts of LARVIO is as below:
   publisher={Multidisciplinary Digital Publishing Institute}
 }
 ```
-
-
-## Cross Platform Performance
-This package has been successfully deployed on ARM (Jetson Nano and Jetson TX2, realtime without GPU refinement). The performances are comparable to the results on PCs.
