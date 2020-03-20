@@ -5,6 +5,8 @@ The core algorithm of LARVIO depends on `Eigen`, `Boost`, `Suitesparse`, `Ceres`
 
 A single-thread toyish example as well as a ROS nodelet package for LARVIO is provided in this repo.
 
+Notice that Hamilton quaternion is utilized in LARVIO, which is a little bit different from the JPL quaternion used in traditional MSCKF community. The filter formulation is thus derivated from scratch. Please check our [Senors2019](https://www.mdpi.com/1424-8220/19/8/1941/htm) and CJA2020 (coming soon) papers for details.
+
 
 ## Results
 #### 1) Demo on EuRoC
