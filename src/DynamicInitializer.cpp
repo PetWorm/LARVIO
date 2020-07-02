@@ -108,7 +108,7 @@ void DynamicInitializer::processImage(MonoCameraMeasurementPtr img_msg) {
 
     ImageFrame imageframe(img_msg, td+ddt);
     imageframe.pre_integration = tmp_pre_integration;
-    all_image_frame.insert(make_pair(img_msg->timeStampToSec+td+ddt, imageframe));
+    all_image_frame.insert(make_pair(img_msg->timeStampToSec+td, imageframe));
     tmp_pre_integration.reset(new IntegrationBase{acc_0, gyr_0, Bas[frame_count], Bgs[frame_count],
                                               acc_n, acc_w, gyr_n, gyr_w});
 
@@ -201,14 +201,14 @@ bool DynamicInitializer::initialStructure() {
     {
         // provide initial guess
         cv::Mat r, rvec, t, D, tmp_r;
-        if((frame_it->first) == Times[i]+td+ddt) {
+        if((frame_it->first) == Times[i]+td) {
             frame_it->second.is_key_frame = true;      
             frame_it->second.R = Q[i].toRotationMatrix() * RIC.transpose();     
             frame_it->second.T = T[i];                                           
             i++;
             continue;
         }   
-        if((frame_it->first) > Times[i]+td+ddt)
+        if((frame_it->first) > Times[i]+td)
             i++;
 
         Matrix3d R_inital = (Q[i].inverse()).toRotationMatrix();   
@@ -283,11 +283,11 @@ bool DynamicInitializer::visualInitialAlign() {
     // change state
     for (int i = 0; i <= frame_count; i++)
     {
-        Matrix3d Ri = all_image_frame[Times[i]+td+ddt].R;
-        Vector3d Pi = all_image_frame[Times[i]+td+ddt].T;
+        Matrix3d Ri = all_image_frame[Times[i]+td].R;
+        Vector3d Pi = all_image_frame[Times[i]+td].T;
         Ps[i] = Pi;
         Rs[i] = Ri;
-        all_image_frame[Times[i]+td+ddt].is_key_frame = true;
+        all_image_frame[Times[i]+td].is_key_frame = true;
     }
 
     // update velocity: express it under reference camera frame
@@ -394,7 +394,7 @@ void DynamicInitializer::slideWindow() {
             linear_acceleration_buf[WINDOW_SIZE].clear();
             angular_velocity_buf[WINDOW_SIZE].clear();
 
-            double t_0 = Times[0]+td+ddt;          
+            double t_0 = Times[0]+td;          
             map<double, ImageFrame>::iterator it_0;
             it_0 = all_image_frame.find(t_0);
             it_0->second.pre_integration.reset();                  
