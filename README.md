@@ -26,10 +26,10 @@ Results of our algorithm are repeatible in every run of every computer I tested 
 ![comparison](https://github.com/PetWorm/LARVIO/blob/master/results/comparison.jpg)
 
 #### 3) TUM-VI Dataset
-![LARVIO on TUM-VI](https://github.com/PetWorm/LARVIO/blob/master/results/tumvi_c_1.jpg)
+<img src="https://github.com/PetWorm/LARVIO/blob/master/results/tumvi_c_1.jpg" width="50%">
 
 #### 4) UZH-FPV Dataset
-![LARVIO on UZH-FPV](https://github.com/PetWorm/LARVIO/blob/master/results/uzhfpv_o_f_3.jpg)
+<img src="https://github.com/PetWorm/LARVIO/blob/master/results/uzhfpv_o_f_3.jpg" width="50%">
 
 
 ## Cross Platform Performance
